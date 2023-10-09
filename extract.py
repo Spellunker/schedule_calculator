@@ -1,5 +1,6 @@
 import datetime
 import pandas as pd
+FILE = "ANESTESIOLOGIA.xlsx"
 
 def main():
     # month_python, year_python = extract_data()
@@ -8,7 +9,7 @@ def main():
     work_schedule()
 
 def extract_data():
-    excel_data = pd.read_excel("ANESTESIOLOGIA.xlsx", dtype=str)
+    excel_data = pd.read_excel(FILE, dtype=str)
     desired_line = excel_data.loc[5]
     month_and_year = str(desired_line.iloc[0]).strip().lower()
     
@@ -22,7 +23,7 @@ def extract_data():
     return month_python, year_python
 
 def extract_days():
-    excel_data = pd.read_excel("ANESTESIOLOGIA.xlsx")
+    excel_data = pd.read_excel(FILE)
     day_python = list()
     
     for line in range(7, 24, 4):
@@ -49,7 +50,7 @@ def identify_weekday(month_python, year_python, day_python):
     print(calendar)
 
 def work_schedule():
-    excel_data = pd.read_excel("ANESTESIOLOGIA.xlsx")
+    excel_data = pd.read_excel(FILE)
     schedule = list()
     
     for line in range(8, 26, 4):
