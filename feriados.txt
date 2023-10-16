@@ -1,0 +1,21 @@
+Feriados da cidade:
+01/01/2023 - Ano Novo
+20/02/2023 - Carnaval
+21/02/2023 - Carnaval
+22/02/2023 - Carnaval
+19/03/2023 - Padroeiro
+07/04/2023 - Sexta-Feira Santa
+07/04/2023 - Sexta-feira da Paixão
+21/04/2023 - Dia de Tiradentes
+01/05/2023 - Dia do Trabalho
+08/06/2023 - Corpus Christi
+08/06/2023 - Corpus Christi
+15/08/2023 - 2ª padroeira
+07/09/2023 - Independência do Brasil
+16/09/2023 - Aniversário
+12/10/2023 - Nossa Senhora Aparecida
+15/10/2023 - Dia do Professor
+28/10/2023 - Dia do Servidor Público
+02/11/2023 - Dia de Finados
+15/11/2023 - Proclamação da República
+25/12/2023 - Natal
