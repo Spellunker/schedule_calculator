@@ -3,6 +3,7 @@ import pandas as pd
 FILE = "ANESTESIOLOGIA.xlsx"
 
 def main():
+    holidays()
     month_python, year_python = extract_data()
     day_python = extract_days()
     weekday = identify_weekday(month_python, year_python, day_python)
@@ -66,15 +67,36 @@ def work_schedule(weekday):
                     desired_line = excel_data.loc[line - 1]
                     check_day = desired_line.iloc[row]
                     
-                    if "/" in name:
-                        slash_index = name.find("/")
-                        first_name = name[:slash_index]
-                        second_name = name[slash_index +1:]
-                        schedule.append({first_name: first_hour, check_day: weekday[check_day]})
-                        schedule.append({second_name: first_hour, check_day: weekday[check_day]})
-                    else:
-                        schedule.append({name: first_hour, check_day: weekday[check_day]})
-    print(schedule)
+                    one_or_two_names(schedule, name, check_day, first_hour, weekday)
+    # print(schedule)
+
+def one_or_two_names(schedule, name, check_day, first_hour, weekday):
+    if "/" in name:
+        slash_index = name.find("/")
+        first_name = name[:slash_index]
+        second_name = name[slash_index +1:]
+        schedule.append({first_name: first_hour, check_day: weekday[check_day]})
+        schedule.append({second_name: first_hour, check_day: weekday[check_day]})
+    else:
+        schedule.append({name: first_hour, check_day: weekday[check_day]})
+    
+    return schedule
+
+def holidays():
+    holiday_data = pd.read_csv('feriados.txt')
+    holiday_days = list()
+    
+    for line in range(20):
+        desired_line = holiday_data.loc[line]
+        holiday_day = desired_line[:2]
+        holiday_month = desired_line[3:5]
+        holiday_year = desired_line[6:10]
+        holiday_date = holiday_year + "/" + holiday_month + "/" + holiday_day
+    
+    holiday_days.append(holiday_date)
+    
+    print(holiday_date)
+    print(holiday_days[0])
 
 if __name__ == "__main__":
     main()
